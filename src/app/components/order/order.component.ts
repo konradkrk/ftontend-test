@@ -7,5 +7,5 @@ import { MatInputModule } from '@angular/material/input';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent {
-
+  a = '';
 }
