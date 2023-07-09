@@ -34,11 +34,22 @@ export class ProductAddComponent {
   add() {
     if(this.product?.id) {
       let value = {...this.product, ...this.form.getRawValue()};
+
+      value.price = parseInt(value.price);
+      value.quantity = parseInt(value.quantity);
+
       this.appService.getUpdateProduct(value).pipe().subscribe((res) => {
         this.router.navigate(['/product']);
       })
     } else {
-      this.appService.getAddProduct(this.form.getRawValue()).pipe().subscribe((res) => {
+      let value = {...this.product, ...this.form.getRawValue()};
+
+      value.price = parseInt(value.price);
+      value.quantity = parseInt(value.quantity);
+
+      console.log('value', value)
+
+      this.appService.getAddProduct(value).pipe().subscribe((res) => {
         this.router.navigate(['/product']);
       })
     }
