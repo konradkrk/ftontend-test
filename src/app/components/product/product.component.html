@@ -1,0 +1,51 @@
+<button
+  class="add-user-button"
+  mat-raised-button
+  color="primary"
+  routerLink="/detail-product"
+>
+  Add Product
+</button>
+<br />
+
+<table mat-table [dataSource]="list" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id.</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef>Price</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.price | priceReplace }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let element">{{ element?.description }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell *matHeaderCellDef>Quantity</th>
+    <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let element">
+      <button [routerLink]="['/edit-product/' + element?.id]">Edit</button>
+      <button class="button-delete" (click)="delete(element?.id)">
+        Delete
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
