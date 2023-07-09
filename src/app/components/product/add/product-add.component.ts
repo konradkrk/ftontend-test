@@ -46,9 +46,6 @@ export class ProductAddComponent {
 
       value.price = parseInt(value.price);
       value.quantity = parseInt(value.quantity);
-      value.description = 'dupa';
-
-      console.log('value', value)
 
       this.appService.getAddProduct(value).pipe().subscribe((res) => {
         this.router.navigate(['/product']);
