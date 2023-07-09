@@ -111,6 +111,7 @@ export class AppService {
       .pipe(
         map((res) => {
           this.user.next(res);
+          return res;
         }),
         catchError((err: HttpErrorResponse) => this.errorHandle(err))
       );
