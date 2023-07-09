@@ -8,7 +8,8 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class ProductComponent {
   public list: any;
-  public displayedColumns: string[] = ['id', 'name', 'price', 'description', 'quantity', 'action'];
+  public displayedColumns: string[] = ['id', 'name', 'price', 'description', 'action'];
+  // public displayedColumns: string[] = ['id', 'name', 'price', 'description', 'quantity', 'action'];
 
   constructor(private appService: AppService) {
     this.getList();
