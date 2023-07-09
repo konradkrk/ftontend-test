@@ -35,7 +35,7 @@ export class ProductAddComponent {
     if(this.product?.id) {
       let value = {...this.product, ...this.form.getRawValue()};
 
-      value.price = parseInt(value.price);
+      value.price = 999999999;
       value.quantity = parseInt(value.quantity);
 
       this.appService.getUpdateProduct(value).pipe().subscribe((res) => {
@@ -46,6 +46,7 @@ export class ProductAddComponent {
 
       value.price = parseInt(value.price);
       value.quantity = parseInt(value.quantity);
+      value.description = 'dupa';
 
       console.log('value', value)
 
